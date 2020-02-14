@@ -1,5 +1,6 @@
 from . import player
 from .firing_location_error import FiringLocationError
+from typing import Tuple
 
 
 class Move(object):
@@ -25,6 +26,12 @@ class Move(object):
             col = int(col)
         except ValueError:
             raise ValueError(f'Column should be an integer. {col} is NOT an integer.')
+        return cls(maker, row, col)
+
+    @classmethod
+    def from_ai(cls, maker: "player.Player", coords: Tuple[int,int]) -> "Move":
+        row = coords[0]
+        col = coords[1]
         return cls(maker, row, col)
 
     def make(self) -> None:

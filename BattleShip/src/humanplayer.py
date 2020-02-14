@@ -1,5 +1,5 @@
 from typing import Dict, List
-from . import game_config, ship, orientation, move
+from . import game_config, ship, orientation, move, board
 from .player import Player
 
 class HumanPlayer(Player):
@@ -49,8 +49,7 @@ class HumanPlayer(Player):
 
         return row, col
 
-
-    def get_move(self) -> move.Move:
+    def get_move(self, the_board: "board.Board") -> move.Move:
         while True:
             coords = input(f'{self.name}, enter the location you want to fire at in the form row, column: ')
             try:

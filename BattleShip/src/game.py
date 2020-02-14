@@ -2,6 +2,7 @@ import itertools
 from . import game_config, player
 from .humanplayer import HumanPlayer
 from .ai_player import AIPlayer
+from .board import Board
 
 class Game(object):
 
@@ -11,6 +12,8 @@ class Game(object):
         self.players = []
         self.player_turn = 0
         self.setup_players(num_players)
+        self.board = player.board
+
 
     def setup_players(self, num_players: int) -> None:
         for player_num in range(1, num_players + 1):
@@ -27,8 +30,8 @@ class Game(object):
     def do_current_players_turn(self, cur_player: player.Player) -> None:
         self.display_gamestate(cur_player)
         while True:
-            move = cur_player.get_move()
-            move.make()
+            move = cur_player.get_move(self.board)
+            move.make(self.board)
             if move.ends_turn():
                 break
 

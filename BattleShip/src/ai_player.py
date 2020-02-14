@@ -1,5 +1,5 @@
 from typing import Dict, List
-from . import game_config, ship, orientation, move
+from . import game_config, ship, orientation, move, board
 from .player import Player
 import random
 
@@ -26,5 +26,5 @@ class AIPlayer(Player):
             col = random.randint(0, self.board.num_cols - 1)
         return row, col
 
-    def get_move(self) -> move.Move:
+    def get_move(self, the_board: "board.Board" ) -> move.Move:
         ...

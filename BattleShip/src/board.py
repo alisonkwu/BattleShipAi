@@ -1,4 +1,4 @@
-from typing import Set, List
+from typing import Set, List, Tuple
 from . import ship_placement, orientation, game_config, cell, move
 from .cell import Cell
 
@@ -82,3 +82,10 @@ class Board(object):
         for row_num, row in enumerate(self.contents):
             rep += str(row_num) + sep + sep.join(cell_.representation(hidden) for cell_ in row) + '\n'
         return rep
+
+    def get_coordinates(self) -> List[Tuple[int,int]]:
+        possible_coords = []
+        for row in range(self.num_rows):
+            for col in range(self.num_cols):
+                possible_coords.append((row,col))
+        return possible_coords
