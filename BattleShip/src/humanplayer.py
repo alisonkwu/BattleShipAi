@@ -26,7 +26,7 @@ class HumanPlayer(Player):
             f'which is {ship_.length} long: ')
         return orientation.Orientation.from_string(orientation_)
 
-    def get_start_coords(self, ship_: ship.Ship):
+    def get_start_coords(self, ship_: ship.Ship, orientation_: orientation.Orientation):
 
         coords = input(f'{self.name}, enter the starting position for your {ship_.name} ship '
                        f',which is {ship_.length} long, in the form row, column: ')

@@ -48,7 +48,7 @@ class Player(abc.ABC):
         while True:
             try:
                 orientation_ = self.get_orientation(ship_)
-                start_row, start_col = self.get_start_coords(ship_)
+                start_row, start_col = self.get_start_coords(ship_, orientation_)
             except ValueError as e:
                 print(e)
             else:
@@ -59,7 +59,7 @@ class Player(abc.ABC):
         ...
 
     @abc.abstractmethod
-    def get_start_coords(self, ship_: ship.Ship):
+    def get_start_coords(self, ship_: ship.Ship, orientation_: orientation.Orientation):
         ...
 
     def all_ships_sunk(self) -> bool:
