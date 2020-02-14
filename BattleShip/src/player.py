@@ -3,7 +3,7 @@ import copy
 from . import game_config, board, ship, orientation, ship_placement, move
 from .firing_location_error import FiringLocationError
 
-
+import abc
 class Player(abc.ABC):
     opponents: List["Player"]
     ships: Dict[str, ship.Ship]
