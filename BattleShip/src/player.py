@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Tuple, Dict, List
 import copy
 from . import game_config, board, ship, orientation, ship_placement, move
 from .firing_location_error import FiringLocationError
@@ -64,6 +64,8 @@ class Player(abc.ABC):
 
     def all_ships_sunk(self) -> bool:
         return all(ship_.health == 0 for ship_ in self.ships.values())
+
+
 
     @abc.abstractmethod
     def get_move(self, the_board: "board.Board") -> move.Move:

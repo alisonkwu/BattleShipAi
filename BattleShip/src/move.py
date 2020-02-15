@@ -34,7 +34,7 @@ class Move(object):
         col = coords[1]
         return cls(maker, row, col)
 
-    def make(self) -> None:
+    def make(self) -> bool:
         try:
             self.maker.fire_at(self.row, self.col)
         except FiringLocationError as e:

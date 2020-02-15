@@ -83,9 +83,4 @@ class Board(object):
             rep += str(row_num) + sep + sep.join(cell_.representation(hidden) for cell_ in row) + '\n'
         return rep
 
-    def get_coordinates(self) -> List[Tuple[int,int]]:
-        possible_coords = []
-        for row in range(self.num_rows):
-            for col in range(self.num_cols):
-                possible_coords.append((row,col))
-        return possible_coords
+
